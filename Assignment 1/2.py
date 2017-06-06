@@ -10,8 +10,6 @@ val2 = -b+ sqrtDiscriminant
 print sqrtDiscriminant
 print "val1 = ", val1, "val2 = ", val2
 
-##ISSUE1 : what if a =0? c=0?
-
 if abs(val1/a)>1 and abs(val2/a)>1:
 	print "1st way", 2*c/val1, 2*c/val2
 
