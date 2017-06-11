@@ -29,7 +29,42 @@ while abs(prev - xkMinus1) > 0.001 and abs(h(prev)) > 1e-5:
 	else:
 		xkMinus1 = xkPlus1
 
-print "The value of the root is using METHOD OF FALSE POSITION IS: " +  str(xkPlus1)
+print "The value of the root using METHOD OF FALSE POSITION is: " +  str(xkPlus1)
 
 
-#
+# Derivative function
+def differentiate(x):
+	g = 0.0001
+	return (h(x+g) - h(x-g))/(2.0*g)
+
+
+
+#Newtons Method
+# Better write newton for scalar case rather than copying from question 5
+Xg = 0
+def newton(Xg):
+	count = 0
+	difference = 1
+	while(abs(h(Xg)) > 1e-5) and abs(difference) > 0.001 and count < 60:
+		difference = h(Xg)/differentiate(Xg)
+		Xg = Xg - difference
+		count = count+1
+		print Xg
+	if(count>59):
+		print "NO SOLUTION FOUND"
+		return None
+	return Xg
+
+Xg = newton(Xg)
+print "The value of the root using NEWTON RAPHSON METHOD is: " +  str(Xg)
+
+
+#Some Attempts of Newton's method with 1.42, 1.44 and 1.46 as initial points
+Xg = 1.42
+Xg = newton(Xg)
+
+Xg = 1.44
+Xg = newton(Xg)
+
+Xg = 1.46
+Xg = newton(Xg)
