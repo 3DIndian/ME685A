@@ -8,7 +8,7 @@ import numpy as np
 
 #Monomial Interpolation
 from ast import literal_eval
-
+import solveRobust as solveRobust
 # A Product function just like sum function
 x = [0,0,0,0]
 y = [0,0,0,0]
@@ -36,8 +36,8 @@ Y= [[y[0]],[y[1]],[y[2]],[y[3]]]
 
 X = np.matrix(X)
 Y = np.matrix(Y)
-
-a = np.linalg.inv(X)*Y
+a = solveRobust.solveRobust(X,Y)
+# a = np.linalg.inv(X)*Y
 
 print "Coefficients using Monomials: " + str(float(a[0])) + ", " + str(float(a[1])) + ", " + str(float(a[2])) + ", " + str(float(a[3])) + "\n"
 
