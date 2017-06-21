@@ -39,7 +39,7 @@ Y = np.matrix(Y)
 a = solveRobust.solveRobust(X,Y)
 # a = np.linalg.inv(X)*Y
 
-print "Coefficients using Monomials: " + str(float(a[0])) + ", " + str(float(a[1])) + ", " + str(float(a[2])) + ", " + str(float(a[3])) + "\n"
+print "Coefficients using Monomials(in increasing order of powers of x): " + str(float(a[0])) + ", " + str(float(a[1])) + ", " + str(float(a[2])) + ", " + str(float(a[3])) + "\n"
 
 #Lagrange Interpolation
 print "Coefficients using Lagrange: " + str(float(y[0])) + ", " + str(float(y[1])) + ", " + str(float(y[2])) + ", " + str(float(y[3])) + "\n"
