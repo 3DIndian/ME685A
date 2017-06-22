@@ -108,7 +108,7 @@ for k in range(N):
 	x[k] = t
 	y[k] = f(t)
 	
-plt.plot(x,y, 'r')
+plt.plot(x,y, 'r', label='Actual Function')
 
 
 #Plot the 8th order interpolation in BLUE DOTS
@@ -119,10 +119,10 @@ for k in range(N):
 	y[k] = float(sum(interpol8[i]*(t**i) for i in range(9)))
 	# print y[k]
 	
-plt.plot(x,y, 'b--')
+plt.plot(x,y, 'b--', label='8th Degree')
 
 
-#Plot the spline interpolation in GREEN DOTS
+#Plot the Piecewise Cubic spline interpolation in GREEN DOTS
 
 def interPolatedFunc(x,i): 
 	return a[i] + b[i]*x + c[i]*x**2+ d[i]*x**3
@@ -134,4 +134,10 @@ for i in range(8):
 		y[k] = float(interPolatedFunc(t, i))
 	plt.plot(x,y, 'g--')
 
+plt.plot([],[], 'g--', label='Piecewise Cubic')
+
+
+plt.xlabel('x')
+plt.ylabel('Function output')
+plt.legend( loc='upper left', numpoints = 1 )
 plt.show()

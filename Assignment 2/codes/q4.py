@@ -49,22 +49,28 @@ def newton(Xg):
 		difference = h(Xg)/differentiate(Xg)
 		Xg = Xg - difference
 		count = count+1
-		print Xg
+		# print Xg
 	if(count>59):
 		print "NO SOLUTION FOUND"
 		return None
+	# print Xg
 	return Xg
 
 Xg = newton(Xg)
-print "The value of the root using NEWTON RAPHSON METHOD is: " +  str(Xg)
+print "The value of the root using NEWTON RAPHSON METHOD is:    " +  str(Xg) + "\n"
 
 
-#Some Attempts of Newton's method with 1.42, 1.44 and 1.46 as initial points
+print "Some Attempts of Newton's method with 1.42, 1.44 and 1.46 as initial points\n"
+print "With initial guess 1.42"
 Xg = 1.42
 Xg = newton(Xg)
+print str(Xg) + "\n"
 
+print "With initial guess 1.44"
 Xg = 1.44
 Xg = newton(Xg)
+print str(Xg) + "\n"
 
+print "With initial guess 1.46"
 Xg = 1.46
 Xg = newton(Xg)

@@ -36,4 +36,4 @@ while (np.linalg.norm(f0) > 1e-6*max(1,np.linalg.norm(Xg)) and count < 60):
 	Xg = Xg - np.linalg.inv(D)*f0
 	f0 = f(Xg)
 	count = count + 1
-print Xg
+print "x1 = " + str(float((Xg[0]))) + ", x2 = " + str(float((Xg[1]))) + ", x3 = " + str(float((Xg[2])))

@@ -1,37 +1,59 @@
-'''Q3 TESTING
+#q2 data
+# (3*x^2+2*x-4)^(1/2)*sin(2*x+pi/3)/ln(2*x+4)
 
+
+
+
+
+'''
 import numpy as np
-import math as m 
+from numpy import linalg
+import math as m
+#Suggested data : (-1,4),(0,3), (2,7), (8,11),(4,4),(1,7), (7,7), (6,11)  
 
-#Third last
-a = 2.70464701
-b = -23.91591869
-c = -281.2556581
-d = 2852.07197474
-
-# #Last
-# a =  0.93752606
-# b = 504.95492764
-# c =-3580.89612591
-# d = 0.
-
-
-def f(x):
-	return a + b*x + c*x**2+ d*x**3
-
-def g(t):
+#d is degree of interpolating Polynomial
+d = 4
+#Generating data:
+def f(t):
 	z = m.cos(10*m.acos(t)+m.pi/6) + m.log(2*t+5)
 	# z = t**8+t**7+t**6+t**5+t**4+t**3+t**2+t**1+1
 	return z
 
-k = 0
-print k, f(k),  g(0.8 - 3*1.1/8 +k)
+#Monomial Interpolation
+from ast import literal_eval
+from solveRobust import solveRobust
+# A Product function just like sum function
+x = [0]*(d+1)
+y = [0]*(d+1)
+def prod(iterable):
+    return reduce(operator.mul, iterable, 1)
+#range_data contains the range in which the function has to interpolated
+range_data = literal_eval(raw_input("Please enter the range of interpolation: ") or "(-0.3,0.8)") 
 
-k = 1.1/8
-print k, f(k),  g(0.8 - 3*1.1/8 +k)
+for i in range(d+1):
+	t = range_data[0] + 1.*i/d*(range_data[1]-range_data[0])
+	x[i] = t
+	y[i] = f(t)
+	# print y[i]
 
-# n = 100
-# for x in range(1, n):
-# 	k = (1.1*x)/(n*8)
-# 	print k, f(k),  g(0.8 - 1.1/8 +k)
+
+# cns = literal_eval(raw_input("Please enter the data: "))
+
+# for i in range(d+1):
+# 	x[i] = cns[i][0]
+# 	y[i] = cns[i][1]
+
+X = np.zeros(shape=(d+1,d+1))
+Y = np.zeros(shape=(d+1,1))
+for i in range(d+1):
+	X[i,0] = 1
+	for j in range(1,d+1):
+		X[i,j] = X[i,j-1]*x[i]
+	Y[i,0] = y[i]
+
+X = np.matrix(X)
+Y = np.matrix(Y)
+interpol8 = solveRobust(X,Y)
+print "Coefficients for 8th order interpolating Polynomial(in increasing order of powers of x): "
+print interpol8
 '''
