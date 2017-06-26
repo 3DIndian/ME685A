@@ -18,7 +18,7 @@ def newton(func, Xg):
 		g = gradient(func, Xg)
 		H = hessian(func, Xg)	
 		count = count + 1
-	print Xg
-	print count
-	print gradient(func, Xg)
-	print constraintFunction(Xg)
+	print "The value of x1 = " + str(float(Xg[0])) + "and x2 = " + str(float(Xg[1]))
+	# print count
+	print "The Gradient of function at (x1,x2) is (" + str(float(gradient(func, Xg)[0])) + ", " + str(float(gradient(func, Xg)[0])) + ")"
+	print "The value of constraint function at (x1,x2) is " + str(float(constraintFunction(Xg)))

@@ -20,8 +20,8 @@ y = [0]*(d+1)
 def prod(iterable):
     return reduce(operator.mul, iterable, 1)
 #range_data contains the range in which the function has to interpolated
-range_data = literal_eval(raw_input("Please enter the range of interpolation: ") or "(-0.3,0.8)") 
-
+range_data = literal_eval(raw_input("Please enter the range of interpolation(or just press enter if you're lazy): ") or "(-0.3,0.8)") 
+print "Range taken: (-0.3,0.8) "
 for i in range(d+1):
 	t = range_data[0] + 1.*i/d*(range_data[1]-range_data[0])
 	x[i] = t

@@ -20,7 +20,9 @@ def prod(iterable):
     return reduce(operator.mul, iterable, 1)
 
 
-cns = literal_eval(raw_input("Please enter the data: ") or "(-1,4),(0,3), (2,7), (8,11)")
+cns = literal_eval(raw_input("Please enter the data(or just press enter if you're lazy): ") or "(-1,4),(0,3), (2,7), (8,11)")
+
+print "Data used: (-1,4),(0,3), (2,7), (8,11) "
 
 for i in range(4):
 	x[i] = cns[i][0]
