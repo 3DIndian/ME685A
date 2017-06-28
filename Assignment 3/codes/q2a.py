@@ -2,7 +2,7 @@ import numpy as np
 import math
 import sys
 from solveRobust import solveRobust
-
+# 6 decimal places
 np.set_printoptions(formatter={'all': lambda x: "{0:0.6f}".format(x)})
 
 
