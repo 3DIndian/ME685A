@@ -23,3 +23,29 @@ def power(A,x):
 		if(flag == True):
 			break
 	return flag, float(ratio), currentPowerOfAx #if flag is true, power method worked, ratio is eigenValue and currentPowerOfAx is eigenVector
+
+
+def findEvalEvec(A,x):
+	flag, eigenValue, eigenVec = power(A,x)
+	eigenVec = eigenVec/eigenValue
+	if(flag == False):
+		print "Cannot find the eigen value using Power method"
+	else:
+		print "Largest Eigen Value:" , eigenValue
+		print "Corresponding Eigen Vector: "
+		print eigenVec
+	print ""
+
+	#Finding 2nd largest eigen value -> Deflation
+
+	#Deflation - Note: The norm of eigen vector is 1 now
+	A = A - float(eigenValue)*(eigenVec*np.matrix.transpose(eigenVec))
+	flag, eigenValue, eigenVec = power(A,x)
+	eigenVec = eigenVec/eigenValue
+	if(flag == False):
+		print "Cannot find the eigen value using Power method"
+	else:
+		print "Second largest Eigen Value:" , eigenValue
+		print "Corresponding Eigen Vector: "
+		print eigenVec
+

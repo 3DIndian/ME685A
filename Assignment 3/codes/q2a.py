@@ -7,7 +7,7 @@ np.set_printoptions(formatter={'all': lambda x: "{0:0.6f}".format(x)})
 
 
 def E(x):
-	return sum(.5*(f(t[i],x) - y[i])**2 for i in range(n))
+	return sum(.5*(f(t[i],x) - y[i])**2 for i in range(m))
 
 def f(t,x):
 	# print x[0,1]
@@ -40,18 +40,13 @@ m = len(t)
 n = 5
 J = np.matrix(np.eye(m,n))
 x0 = np.array([0]*5)
-# print x0
 err = np.matrix.transpose(np.matrix(error(f,x0)))
 Error = 1/2.*np.matrix.transpose(err)*err
 
-# print "YO!"
 
 while True:
-	# print "Steps"
 	prevError = Error
 	J = np.matrix(jacobian(f,x0))
-	# print err
-	# print J
 	lam = 1
 	g = np.matrix.transpose(J)*err
 	H = np.matrix.transpose(J)*J
@@ -61,6 +56,7 @@ while True:
 	Error = 1/2.*np.matrix.transpose(err)*err
 
 	if abs(Error - prevError) < epsil:
+		print "Solution using Levenberg-Marquardt method:" 
 		print "x =", x0
 		break
 
@@ -69,8 +65,3 @@ while True:
 		x0 = x0+delX
 	else:
 		lam = lam*1.2
-# print "Huh"
-# print delX
-# print E(x0)
-# for i in range(m):
-# 	print f(t[i], x0-delX)
