@@ -7,7 +7,7 @@ def square(m,n):
 #For Circle
 def circle(p,q):
 	r = (p+1.)/2; theta = math.pi*(q+1.)/4
-	return math.exp(-r**2*math.cos(theta)*math.sin(theta))*r
+	return math.exp(-r**2*math.cos(theta)*math.sin(theta))*r*(math.pi/8.)
 
 def simpsons(f):
 	w0 = 16./9; w1 = 4./9; w2 = 1./9

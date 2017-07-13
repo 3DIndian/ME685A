@@ -1,5 +1,6 @@
 from integrationFunctions import *
 import numpy as np
+import matplotlib.pyplot as plt
 
 def f(t,z):
 	a=6;b=1;c=2;d=8
@@ -29,4 +30,13 @@ def newton(func,Xg):
 
 p = 1
 
-print "The value of " float(newton(error,p))
+p = float(newton(error,p))
+print "The value of p is:", p
+
+ya = np.array([[0], [p]])
+
+yn, plotmat1, plotmat2 = plotWithRungeKutta(f,a,b,h,ya)
+temp = np.arange(a,b,h)
+plt.plot(temp,plotmat1)
+plt.title("Plot of y vs x")
+plt.show()

@@ -10,11 +10,9 @@ def trapezoidal(f, a, b, N):
 		xi = xi+h
 		sum = sum+f(xi)
 	return h*sum
+
 def f(x):
 	return 4./(1+x**2)
-
-print "Using trapezoidal rule: " +  str(trapezoidal(f,0,1,N))
-
 
 def getErrorPlot(f,a,b):
 	RNG = 10000
@@ -40,8 +38,18 @@ def rombergIntegral(f,a,b,N):
 	J13 = trapezoidal(f,a,b,N*4)
 	J23 = (4*J13-J12)/3.
 	J33 = (16*J23 - J22)/15.
-	print "Using Romberg Integral: " + str(J33)
+	return J33
+
+def g(x):
+	return math.exp(x)
 
 # getErrorPlot(f,0,1)
 
-rombergIntegral(f,0,1,N*100)
+print "Suggested Data: "
+print "Using trapezoidal rule: " +  str(trapezoidal(f,0,1,N))
+print "Using Romberg Integral: " + str(rombergIntegral(f,0,1,N))
+print "\nStudents Data: "
+print "Function taken: e**x"
+print "Using trapezoidal rule: " +  str(trapezoidal(g,0,1,N))
+print "Using Romberg Integral: " + str(rombergIntegral(g,0,1,N))
+
