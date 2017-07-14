@@ -69,10 +69,24 @@ print"--------------------------------------------"
 
 print "Student Data: x1=100, x2=0, x3 = 20"
 x1_0 = 100.; x2_0 = 0.; x3_0 = 20.
+xa = np.array([[x1_0], [x2_0], [x3_0]])
 
 k1 = 1; k2 = 1000
 y_n, COMP1, COMP2, COMP3 = reaction(k1,k2)
 print "For k1 = 1, k2 = 1000:\n", y_n
+print "For k1 = 1, k2 = 1:\n", y_n
+
+COMP1 = np.array(COMP1)
+COMP2 = np.array(COMP2)
+COMP3 = np.array(COMP3)
+temp = np.array(np.arange(a,b,h))
+
+plt.plot(temp,COMP1, label = "x1")
+plt.plot(temp,COMP2, label = "x2")
+plt.plot(temp,COMP3, label = "x3")
+plt.legend( loc='upper left', numpoints = 1 )
+plt.title("k1=1, k2=1000")
+plt.show()
 
 k1 = 1; k2 = 100
 y_n, COMP1, COMP2, COMP3 = reaction(k1,k2)
