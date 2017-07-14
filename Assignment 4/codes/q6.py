@@ -16,7 +16,7 @@ def reaction(k1,k2):
 	n = 3
 	I = np.matrix(np.eye(n))
 	temp = np.arange(a,b,h)
-	y_n = np.array([[1],[0],[0]])
+	y_n = xa
 
 	for i in temp:
 		J = np.matrix([ [-k1, 0, 0], [k1, -k2, 0], [0, k2, 0] ])
@@ -47,7 +47,7 @@ COMP1 = np.array(COMP1)
 COMP2 = np.array(COMP2)
 COMP3 = np.array(COMP3)
 temp = np.array(np.arange(a,b,h))
-
+print COMP1
 plt.plot(temp,COMP1, label = "x1")
 plt.plot(temp,COMP2, label = "x2")
 plt.plot(temp,COMP3, label = "x3")
