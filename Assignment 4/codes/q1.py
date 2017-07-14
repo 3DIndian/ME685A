@@ -6,7 +6,7 @@ def trapezoidal(f, a, b, N):
 	h = 1.*(b-a)/N
 	sum = (f(a) + f(b))/2.
 	xi = a
-	for i in range(N+1):
+	for i in range(N-1):
 		xi = xi+h
 		sum = sum+f(xi)
 	return h*sum
@@ -43,13 +43,15 @@ def rombergIntegral(f,a,b,N):
 def g(x):
 	return math.exp(x)
 
-# getErrorPlot(f,0,1)
+getErrorPlot(f,0,1)
 
 print "Suggested Data: "
 print "Using trapezoidal rule: " +  str(trapezoidal(f,0,1,N))
 print "Using Romberg Integral: " + str(rombergIntegral(f,0,1,N))
+print "Analytic Integral: " + str(math.pi)
 print "\nStudents Data: "
 print "Function taken: e**x"
 print "Using trapezoidal rule: " +  str(trapezoidal(g,0,1,N))
 print "Using Romberg Integral: " + str(rombergIntegral(g,0,1,N))
+print "Analytic Integral: " + str(math.exp(1)-1)
 
