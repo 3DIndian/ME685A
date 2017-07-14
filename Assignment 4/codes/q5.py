@@ -18,16 +18,20 @@ print yn
 temp = np.arange(a,b,h)
 plt.plot(temp,plotmat1, label = "Rabbits")
 plt.plot(temp,plotmat2, label = "Foxes")
-plt
 plt.legend( loc='upper left', numpoints = 1 )
 plt.title("For Rabbits=1, Foxes=100")
 plt.show()
+
 
 
 print "\n(ii) small(1), small(1)"
 ya = np.array([[1], [1]])
 yn, plotmat1, plotmat2 = plotWithRungeKutta(f,a,b,h,ya)
 print yn
+plt.plot(plotmat1, plotmat2)
+plt.legend( loc='upper left', numpoints = 1 )
+plt.title("Phase space for Rabbits=1, Foxes=1")
+plt.show()
 
 print "\n(iii) large(100), small(1)"
 ya = np.array([[100], [1]])
